@@ -613,6 +613,7 @@ syn keyword juliaConstC SmbIsdeltaLWupEnum
 syn keyword juliaConstC SmbIsfirnwarmingEnum
 syn keyword juliaConstC SmbIsgraingrowthEnum
 syn keyword juliaConstC SmbIsmappedforcingEnum
+syn keyword juliaConstC SmbIsmappingusingneighborsEnum
 syn keyword juliaConstC SmbIsmeltEnum
 syn keyword juliaConstC SmbIsmungsmEnum
 syn keyword juliaConstC SmbIsprecipforcingremappedEnum
@@ -626,6 +627,8 @@ syn keyword juliaConstC SmbKEnum
 syn keyword juliaConstC SmbLapsedlwrfValueEnum
 syn keyword juliaConstC SmbLapseRatesEnum
 syn keyword juliaConstC SmbLapseTaValueEnum
+syn keyword juliaConstC SmbLatMappedforcingEnum
+syn keyword juliaConstC SmbLonMappedforcingEnum
 syn keyword juliaConstC SmbLWgradEnum
 syn keyword juliaConstC SmbMappedforcingelevationEnum
 syn keyword juliaConstC SmbNumBasinsEnum
@@ -665,6 +668,7 @@ syn keyword juliaConstC SmbT0dryEnum
 syn keyword juliaConstC SmbT0wetEnum
 syn keyword juliaConstC SmbTaParamEnum
 syn keyword juliaConstC SmbTcIdxEnum
+syn keyword juliaConstC SmbTeDefaultEnum
 syn keyword juliaConstC SmbTeThreshEnum
 syn keyword juliaConstC SmbTdiffEnum
 syn keyword juliaConstC SmbThermoDeltaTScalingEnum
@@ -1195,7 +1199,10 @@ syn keyword juliaConstC SmbHSnowEnum
 syn keyword juliaConstC SmbHSnowInitEnum
 syn keyword juliaConstC SmbHrefEnum
 syn keyword juliaConstC SmbIsInitializedEnum
+syn keyword juliaConstC SmbLatEnum
+syn keyword juliaConstC SmbLonEnum
 syn keyword juliaConstC SmbMAddEnum
+syn keyword juliaConstC SmbMappedforcingneighborsEnum
 syn keyword juliaConstC SmbMappedforcingpointEnum
 syn keyword juliaConstC SmbMappedforcingprecipscalingEnum
 syn keyword juliaConstC SmbMassBalanceEnum
@@ -1210,6 +1217,8 @@ syn keyword juliaConstC SmbMeanULWEnum
 syn keyword juliaConstC SmbMeanTemperatureEnum
 syn keyword juliaConstC SmbMeltEnum
 syn keyword juliaConstC SmbMeltSubstepEnum
+syn keyword juliaConstC SmbMinXEnum
+syn keyword juliaConstC SmbMinYEnum
 syn keyword juliaConstC SmbMonthlytemperaturesEnum
 syn keyword juliaConstC SmbMonthlydsradiationEnum
 syn keyword juliaConstC SmbMonthlydlradiationEnum
@@ -1226,6 +1235,7 @@ syn keyword juliaConstC SmbPddfacSnowEnum
 syn keyword juliaConstC SmbPrecipitationEnum
 syn keyword juliaConstC SmbPrecipitationSubstepEnum
 syn keyword juliaConstC SmbPrecipitationsAnomalyEnum
+syn keyword juliaConstC SmbQinterpEnum
 syn keyword juliaConstC SmbDsradiationAnomalyEnum
 syn keyword juliaConstC SmbDlradiationAnomalyEnum
 syn keyword juliaConstC SmbWindspeedAnomalyEnum

@@ -1,4 +1,4 @@
-#Test Name: SquareShelfSMBGembMapping
+#Test Name: SquareShelfSMBGembPrecipMapping
 from socket import gethostname
 import sys
 import numpy as np

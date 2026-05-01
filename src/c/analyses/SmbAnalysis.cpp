@@ -478,6 +478,7 @@ void SmbAnalysis::UpdateParameters(Parameters* parameters,IoModel* iomodel,int s
 			parameters->AddObject(iomodel->CopyConstantObject("md.smb.ThermoDeltaTScaling",SmbThermoDeltaTScalingEnum));
 			parameters->AddObject(iomodel->CopyConstantObject("md.smb.adThresh",SmbAdThreshEnum));
 			parameters->AddObject(iomodel->CopyConstantObject("md.smb.teThresh",SmbTeThreshEnum));
+			parameters->AddObject(iomodel->CopyConstantObject("md.smb.teDefault",SmbTeDefaultEnum));
 			break;
 		case SMBpddEnum:
 			parameters->AddObject(iomodel->CopyConstantObject("md.smb.desfac",SmbDesfacEnum));

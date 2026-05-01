@@ -620,6 +620,7 @@ syn keyword cConstant SmbIsdeltaLWupEnum
 syn keyword cConstant SmbIsfirnwarmingEnum
 syn keyword cConstant SmbIsgraingrowthEnum
 syn keyword cConstant SmbIsmappedforcingEnum
+syn keyword cConstant SmbIsmappingusingneighborsEnum
 syn keyword cConstant SmbIsmeltEnum
 syn keyword cConstant SmbIsmungsmEnum
 syn keyword cConstant SmbIsprecipforcingremappedEnum
@@ -633,6 +634,8 @@ syn keyword cConstant SmbKEnum
 syn keyword cConstant SmbLapsedlwrfValueEnum
 syn keyword cConstant SmbLapseRatesEnum
 syn keyword cConstant SmbLapseTaValueEnum
+syn keyword cConstant SmbLatMappedforcingEnum
+syn keyword cConstant SmbLonMappedforcingEnum
 syn keyword cConstant SmbLWgradEnum
 syn keyword cConstant SmbMappedforcingelevationEnum
 syn keyword cConstant SmbNumBasinsEnum
@@ -672,6 +675,7 @@ syn keyword cConstant SmbT0dryEnum
 syn keyword cConstant SmbT0wetEnum
 syn keyword cConstant SmbTaParamEnum
 syn keyword cConstant SmbTcIdxEnum
+syn keyword cConstant SmbTeDefaultEnum
 syn keyword cConstant SmbTeThreshEnum
 syn keyword cConstant SmbTdiffEnum
 syn keyword cConstant SmbThermoDeltaTScalingEnum
@@ -1202,7 +1206,10 @@ syn keyword cConstant SmbHSnowEnum
 syn keyword cConstant SmbHSnowInitEnum
 syn keyword cConstant SmbHrefEnum
 syn keyword cConstant SmbIsInitializedEnum
+syn keyword cConstant SmbLatEnum
+syn keyword cConstant SmbLonEnum
 syn keyword cConstant SmbMAddEnum
+syn keyword cConstant SmbMappedforcingneighborsEnum
 syn keyword cConstant SmbMappedforcingpointEnum
 syn keyword cConstant SmbMappedforcingprecipscalingEnum
 syn keyword cConstant SmbMassBalanceEnum
@@ -1217,6 +1224,8 @@ syn keyword cConstant SmbMeanULWEnum
 syn keyword cConstant SmbMeanTemperatureEnum
 syn keyword cConstant SmbMeltEnum
 syn keyword cConstant SmbMeltSubstepEnum
+syn keyword cConstant SmbMinXEnum
+syn keyword cConstant SmbMinYEnum
 syn keyword cConstant SmbMonthlytemperaturesEnum
 syn keyword cConstant SmbMonthlydsradiationEnum
 syn keyword cConstant SmbMonthlydlradiationEnum
@@ -1233,6 +1242,7 @@ syn keyword cConstant SmbPddfacSnowEnum
 syn keyword cConstant SmbPrecipitationEnum
 syn keyword cConstant SmbPrecipitationSubstepEnum
 syn keyword cConstant SmbPrecipitationsAnomalyEnum
+syn keyword cConstant SmbQinterpEnum
 syn keyword cConstant SmbDsradiationAnomalyEnum
 syn keyword cConstant SmbDlradiationAnomalyEnum
 syn keyword cConstant SmbWindspeedAnomalyEnum

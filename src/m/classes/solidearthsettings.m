@@ -20,7 +20,7 @@ classdef solidearthsettings
 		compute_bp_grd         = 0; %will GRD patterns for bottom pressures be computed? 
 		degacc                 = 0; %degree increment for resolution of Green tables.
 		timeacc                = 1; %time step accuracy required to compute Green tables
-		viscoussampling       = 100; %number of samples kept before doubling spacing in the viscous memory time grid
+		viscoussampling       = 8; %number of samples kept before doubling spacing in the viscous memory time grid
 		horiz                  = 0; %compute horizontal deformation
 		grdmodel               = 1; %grd model (0 by default, 1 for (visco-)elastic, 2 for Ivins)
 		cross_section_shape    = 0; %cross section only used when grd model is Ivins
@@ -78,7 +78,7 @@ classdef solidearthsettings
 			%numerical discretization accuracy
 			self.degacc=.01;
 			self.timeacc=1; 
-			self.viscoussampling=100;
+			self.viscoussampling=8;
 
 			%how many time steps we skip before we run solidearthsettings solver during transient
 			self.runfrequency=1;

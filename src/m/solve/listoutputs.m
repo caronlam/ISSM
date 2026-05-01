@@ -449,7 +449,10 @@ SmbHSnow
 SmbHSnowInit
 SmbHref
 SmbIsInitialized
+SmbLat
+SmbLon
 SmbMAdd
+SmbMappedforcingneighbors
 SmbMappedforcingpoint
 SmbMappedforcingprecipscaling
 SmbMassBalance
@@ -464,6 +467,8 @@ SmbMeanULW
 SmbMeanTemperature
 SmbMelt
 SmbMeltSubstep
+SmbMinX
+SmbMinY
 SmbMonthlytemperatures
 SmbMonthlydsradiation
 SmbMonthlydlradiation
@@ -480,6 +485,7 @@ SmbPddfacSnow
 SmbPrecipitation
 SmbPrecipitationSubstep
 SmbPrecipitationsAnomaly
+SmbQinterp
 SmbDsradiationAnomaly
 SmbDlradiationAnomaly
 SmbWindspeedAnomaly

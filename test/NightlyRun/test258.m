@@ -1,4 +1,4 @@
-%Test Name: SquareShelfSMBGembMapping
+%Test Name: SquareShelfSMBGembPrecipMapping
 md=triangle(model(),'../Exp/Square.exp',350000/2.);
 md=setmask(md,'all','');
 md=parameterize(md,'../Par/SquareShelf.par');

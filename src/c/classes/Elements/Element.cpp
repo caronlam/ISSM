@@ -5599,6 +5599,7 @@ void       Element::SmbGemb(IssmDouble timeinputs, int count, int steps){/*{{{*/
 	IssmDouble thermo_scaling=1.0;
 	IssmDouble adThresh=1023.0;
 	IssmDouble teThresh=10;
+	IssmDouble teDefault=1;
 	IssmDouble tlapse=0.0;
 	IssmDouble dlwlapse=0.0;
 	/*}}}*/
@@ -5688,6 +5689,7 @@ void       Element::SmbGemb(IssmDouble timeinputs, int count, int steps){/*{{{*/
 	parameters->FindParam(&thermo_scaling,SmbThermoDeltaTScalingEnum);
 	parameters->FindParam(&adThresh,SmbAdThreshEnum);
 	parameters->FindParam(&teThresh,SmbTeThreshEnum);
+	parameters->FindParam(&teDefault,SmbTeDefaultEnum);
 	parameters->FindParam(&ismappedforcing,SmbIsmappedforcingEnum);
 	/*}}}*/
 	/*Retrieve inputs: {{{*/
@@ -6101,7 +6103,7 @@ void       Element::SmbGemb(IssmDouble timeinputs, int count, int steps){/*{{{*/
 		if (m>1) T[1]=Ta;
 	}
 	/*Thermal profile computation:*/
-	if(isthermal)thermo(&shf, &lhf, &EC, &T, &ulw, re, dz, d, swf, dlw, Ta, V, eAir, pAir, tcIdx, eIdx, teValue, dulwrfValue, teThresh, W[0], smb_dt, dzMin, m, Vz, Tz, thermo_scaling,rho_ice,this->Sid(),isconstrainsurfaceT,isdeltaLWup);
+	if(isthermal)thermo(&shf, &lhf, &EC, &T, &ulw, re, dz, d, swf, dlw, Ta, V, eAir, pAir, tcIdx, eIdx, teValue, teDefault, dulwrfValue, teThresh, W[0], smb_dt, dzMin, m, Vz, Tz, thermo_scaling,rho_ice,this->Sid(),isconstrainsurfaceT,isdeltaLWup);
 
 	/*Change in thickness of top cell due to evaporation/condensation  assuming same density as top cell.
 	 * need to fix this in case all or more of cell evaporates */

@@ -83,8 +83,9 @@ classdef SMBgemb
 
 		eIdx   = NaN; %method for calculating emissivity (default is 1)
 		% 0: direct input from teValue parameter, no use of teThresh
-		% 1: default value of 1, in areas with grain radius below teThresh
-		% 2: default value of 1, in areas with grain radius below teThresh and areas of dry snow (not bare ice or wet) at the surface
+		% 1: default value of teDefault, in areas with grain radius below teThresh
+		% 2: default value of teDefault, in areas with grain radius below teThresh and areas of dry snow (not bare ice or wet) at the surface
+		% 3: default value of teDefault, in areas with grain radius below teThresh and areas of dry snow (no melt) at the surface
 
 		tcIdx   = NaN; %method for calculating thermal conductivity (default is 1)
 		% 1: after Sturm et al, 1997
@@ -139,6 +140,7 @@ classdef SMBgemb
 		teThresh = NaN; %Apply eIdx method to all areas with grain radii above this value (mm),
 		%or else apply direct input value from teValue, allowing emissivity to be altered.
 		%Default value is a effective grain radius of 10 mm.
+		teDefault = NaN; %Default value for thermal emissivity.
 
 		%densities:
 		InitDensityScaling= NaN; %initial scaling factor multiplying the density of ice, which describes the density of the snowpack.
@@ -217,10 +219,12 @@ classdef SMBgemb
 			fielddisplay(self,'dulwrfValue','Specified bias to be applied to the outward long wave radiation at every element (W/m-2, +upward)');
 			fielddisplay(self,'teValue','Outward longwave radiation thermal emissivity forcing at every element (default in code is 1)');
 			fielddisplay(self,'teThresh',{'Apply eIdx method to all areas with effective grain radius above this value (mm),','or else apply direct input value from teValue, allowing emissivity to be altered.'});
+			fielddisplay(self,'teDefault',{'Default value for thermal emissivity.'});
 			fielddisplay(self,'eIdx',{'method for calculating emissivity (default is 1)',...
 				'0: direct input from teValue parameter, no use of teThresh',...
-				'1: default value of 1, in areas with grain radius below teThresh',...
-				'2: default value of 1, in areas with grain radius below teThresh and areas of dry snow (not bare ice or wet) at the surface'});
+				'1: default value of teDefault, in areas with grain radius below teThresh',...
+				'2: default value of teDefault, in areas with grain radius below teThresh and areas of dry snow (not bare ice or wet) at the surface',...
+				'3: default value of teDefault, in areas with grain radius below teThresh and areas of dry snow (no melt) at the surface'});
 
 			fielddisplay(self,'tcIdx',{'method for calculating thermal conductivity (default is 1)',...
 				'1: after Sturm et al, 1997',...
@@ -411,6 +415,7 @@ classdef SMBgemb
 			self.K = 7;
 			self.adThresh = 1023;
 			self.teThresh = 10;
+			self.teDefault = 1;
 
 			self.teValue = ones(mesh.numberofelements,1);
 			self.aValue = self.aSnow*ones(mesh.numberofelements,1);
@@ -495,7 +500,7 @@ classdef SMBgemb
 			end
 
 			md = checkfield(md,'fieldname','smb.aIdx','NaN',1,'Inf',1,'values',[0,1,2,3,4]);
-			md = checkfield(md,'fieldname','smb.eIdx','NaN',1,'Inf',1,'values',[0,1,2]);
+			md = checkfield(md,'fieldname','smb.eIdx','NaN',1,'Inf',1,'values',[0,1,2,3]);
 			md = checkfield(md,'fieldname','smb.tcIdx','NaN',1,'Inf',1,'values',[1,2]);
 			md = checkfield(md,'fieldname','smb.swIdx','NaN',1,'Inf',1,'values',[0,1]);
 			md = checkfield(md,'fieldname','smb.denIdx','NaN',1,'Inf',1,'values',[1,2,3,4,5,6,7]);
@@ -510,6 +515,7 @@ classdef SMBgemb
 			md = checkfield(md,'fieldname','smb.ThermoDeltaTScaling','NaN',1,'Inf',1,'>=',0,'<=',1);
 			md = checkfield(md,'fieldname','smb.adThresh','NaN',1,'Inf',1,'>=',0);
 			md = checkfield(md,'fieldname','smb.teThresh','NaN',1,'Inf',1,'>=',0);
+			md = checkfield(md,'fieldname','smb.teDefault','NaN',1,'Inf',1,'>=',0,'<=',1.1);
 
 			md = checkfield(md,'fieldname','smb.aValue','timeseries',1,'NaN',1,'Inf',1,'>=',0,'<=',1);
 			switch self.aIdx,
@@ -603,6 +609,7 @@ classdef SMBgemb
 			WriteData(fid,prefix,'object',self,'class','smb','fieldname','K','format','Double');
 			WriteData(fid,prefix,'object',self,'class','smb','fieldname','adThresh','format','Double');
 			WriteData(fid,prefix,'object',self,'class','smb','fieldname','teThresh','format','Double');
+			WriteData(fid,prefix,'object',self,'class','smb','fieldname','teDefault','format','Double');
 
 			WriteData(fid,prefix,'object',self,'class','smb','fieldname','aValue','format','DoubleMat','mattype',2,'timeserieslength',md.mesh.numberofelements+1,'yts',md.constants.yts);
 			WriteData(fid,prefix,'object',self,'class','smb','fieldname','teValue','format','DoubleMat','mattype',2,'timeserieslength',md.mesh.numberofelements+1,'yts',md.constants.yts);
